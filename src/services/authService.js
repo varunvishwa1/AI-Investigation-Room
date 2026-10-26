@@ -1,0 +1,10 @@
+import{apiRequest}from'./api.js';
+export const getCurrentUser=()=>apiRequest('/auth/me');
+export const registerUser=(body)=>apiRequest('/auth/register',{method:'POST',body});
+export const loginUser=(body)=>apiRequest('/auth/login',{method:'POST',body});
+export const googleLoginUser=(credential,termsAccepted=false)=>apiRequest('/auth/google',{method:'POST',body:{credential,termsAccepted}});
+export const logoutUser=()=>apiRequest('/auth/logout',{method:'POST',body:{}});
+export const getOnboarding=()=>apiRequest('/auth/onboarding');
+export const updateOnboarding=(body)=>apiRequest('/auth/onboarding',{method:'PATCH',body});
+export const requestPasswordReset=(email)=>apiRequest('/auth/forgot-password',{method:'POST',body:{email}});
+export const getDashboardData=()=>apiRequest('/dashboard');
